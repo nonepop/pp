@@ -1,5 +1,5 @@
 from pygame import *
-
+from random import randint
 
 class GameSprite(sprite.Sprite):
     def __init__(self,player_image, x, y, speed,x_size,y_size):
@@ -9,11 +9,13 @@ class GameSprite(sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        
 
     def reset(self):
         window.blit(self.image,(self.rect.x,self.rect.y))
 
 
+    
 class Player(GameSprite):
 
     def update_l(self):
@@ -50,13 +52,7 @@ window.fill(back)
 
 player1 = Player("raketka.png", 50, 100, 10,  100, 130)
 player2 = Player("raketka.png", win_width-150, 100, 10, 100, 130)
-
-
-
-
-
-
-
+machik = GameSprite("machik.png", 350,250,7,40,40)
 
 
 
@@ -78,6 +74,7 @@ while game:
         player1.reset()
         player2.update_r()
         player2.reset()
+        machik.reset()
         
 
 
@@ -88,6 +85,14 @@ while game:
     display.update()
     clock.tick(FPS)
 
+
+
+
+    
+
+
+
+    
 
 
 
