@@ -51,6 +51,7 @@ font.init()
 font = font.SysFont('Arial', 36)
 lose1 = font.render("Player 1 lose", True, (255,0,0))
 lose2 = font.render("Player 2 lose", True, (255,0,0))
+win = font.render("WINNER", True, (0,255,0))
 
 
 
@@ -61,10 +62,17 @@ player1 = Player("raketka.png", 50, 100, 10,  100, 130)
 player2 = Player("raketka.png", win_width-150, 100, 10, 100, 130)
 machik = GameSprite("machik.png", 350,250,7,40,40)
 
+player1_photo = transform.scale(image.load('player1.png'),(80,80))
+player2_photo = transform.scale(image.load('player2.png'),(80,80))
+
+
+
+
 
 speed_x = 3
 speed_y = 3
-
+phot1 = True
+phot2 = True
 finish = False
 game = True
 FPS = 60
@@ -85,6 +93,11 @@ while game:
         machik.reset()
         machik.rect.x += speed_x
         machik.rect.y += speed_y
+        if phot1 == True:
+            window.blit(player1_photo, (10,10))
+        if phot2 == True:
+            window.blit(player2_photo, (620,10))
+
 
 
 
@@ -98,11 +111,18 @@ while game:
 
         if machik.rect.x >= 695:
             window.blit(lose2,(200,200))
+            phot1 = False
+            window.blit(player1_photo, (150,250))
+            window.blit(win,(250,270))
+
+
+
 
         if machik.rect.x <= 5:
             window.blit(lose1,(200,200))
-
-
+            phot2 = False
+            window.blit(player2_photo, (150,250))
+            window.blit(win,(250,270))
 
 
 
