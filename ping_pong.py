@@ -83,6 +83,22 @@ while game:
             if e.type == QUIT:
                 game = False
 
+            if e.type == KEYDOWN:
+                    if e.key == K_r:
+                        finish = False
+                        speed_x = 3
+                        speed_y = 3
+                        phot1 = True
+                        phot2 = True
+                        machik.kill()
+                        player1.kill()
+                        player2.kill()
+                        player1 = Player("raketka.png", 50, 100, 10,  100, 130)
+                        player2 = Player("raketka.png", win_width-150, 100, 10, 100, 130)
+                        machik = GameSprite("machik.png", 350,250,7,40,40)
+
+
+
 
     if finish != True:
         window.fill(back)
