@@ -70,7 +70,7 @@ player2_photo = transform.scale(image.load('player2.png'),(80,80))
 
 
 
-
+n = randint(1,2)
 speed_x = 3
 speed_y = 3
 phot1 = True
@@ -90,6 +90,7 @@ while game:
                         finish = False
                         speed_x = 3
                         speed_y = 3
+                        n = randint(1,2)
                         phot1 = True
                         phot2 = True
                         machik.kill()
@@ -109,8 +110,12 @@ while game:
         player2.update_r()
         player2.reset()
         machik.reset()
-        machik.rect.x += speed_x
-        machik.rect.y += speed_y
+        if n == 1:
+            machik.rect.x += speed_x
+            machik.rect.y += speed_y
+        else:
+            machik.rect.x -= speed_x
+            machik.rect.y -= speed_y
         if phot1 == True:
             window.blit(player1_photo, (10,10))
         if phot2 == True:
