@@ -48,10 +48,12 @@ window = display.set_mode((win_width, win_height))
 back = (200,255,255)
 window.fill(back)
 font.init()
-font = font.SysFont('Arial', 36)
-lose1 = font.render("Player 1 lose", True, (255,0,0))
-lose2 = font.render("Player 2 lose", True, (255,0,0))
-win = font.render("WINNER", True, (0,255,0))
+font1 = font.SysFont('Arial', 36)
+font2 = font.SysFont('Arial', 15)
+lose1 = font1.render("Player 1 lose", True, (255,0,0))
+lose2 = font1.render("Player 2 lose", True, (255,0,0))
+win = font1.render("WINNER", True, (0,255,0))
+rel = font2.render("нажмите r(R), чтобы перезапустить", True, (255,0,0))
 
 
 
@@ -130,6 +132,7 @@ while game:
             phot1 = False
             window.blit(player1_photo, (150,250))
             window.blit(win,(250,270))
+            window.blit(rel,(450,400))
 
 
 
@@ -139,6 +142,7 @@ while game:
             phot2 = False
             window.blit(player2_photo, (150,250))
             window.blit(win,(250,270))
+            window.blit(rel,(450,400))
 
 
 
